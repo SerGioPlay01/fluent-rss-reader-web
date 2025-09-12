@@ -1,0 +1,318 @@
+{
+    "feeds": {
+        "en": {
+            "news": [
+                {
+                    "name": "BBC News",
+                    "url": "http://feeds.bbci.co.uk/news/rss.xml",
+                    "description": "Latest news from BBC"
+                },
+                {
+                    "name": "Reuters Top News",
+                    "url": "http://feeds.reuters.com/reuters/topNews",
+                    "description": "Breaking news and top stories"
+                },
+                {
+                    "name": "CNN",
+                    "url": "http://rss.cnn.com/rss/edition.rss",
+                    "description": "CNN breaking news and latest headlines"
+                },
+                {
+                    "name": "The Guardian",
+                    "url": "https://www.theguardian.com/world/rss",
+                    "description": "World news from The Guardian"
+                }
+            ],
+            "tech": [
+                {
+                    "name": "TechCrunch",
+                    "url": "http://feeds.feedburner.com/TechCrunch",
+                    "description": "Latest technology news and startup information"
+                },
+                {
+                    "name": "Ars Technica",
+                    "url": "http://feeds.arstechnica.com/arstechnica/index",
+                    "description": "Technology news and analysis"
+                },
+                {
+                    "name": "The Verge",
+                    "url": "https://www.theverge.com/rss/index.xml",
+                    "description": "Technology, science, art, and culture"
+                },
+                {
+                    "name": "Wired",
+                    "url": "https://www.wired.com/feed/rss",
+                    "description": "Technology and culture magazine"
+                }
+            ],
+            "science": [
+                {
+                    "name": "Scientific American",
+                    "url": "http://rss.sciam.com/ScientificAmerican-Global",
+                    "description": "Science news and discoveries"
+                },
+                {
+                    "name": "Nature News",
+                    "url": "http://feeds.nature.com/nature/rss/current",
+                    "description": "Latest research and scientific breakthroughs"
+                }
+            ]
+        },
+        "ru": {
+            "news": [
+                {
+                    "name": "Lenta.ru",
+                    "url": "https://lenta.ru/rss",
+                    "description": "Новости России и мира"
+                },
+                {
+                    "name": "РБК",
+                    "url": "http://static.feed.rbc.ru/rbc/logical/footer/news.rss",
+                    "description": "Деловые новости и аналитика"
+                },
+                {
+                    "name": "Коммерсантъ",
+                    "url": "https://www.kommersant.ru/RSS/news.xml",
+                    "description": "Ежедневная общественно-политическая газета"
+                },
+                {
+                    "name": "Газета.Ru",
+                    "url": "https://www.gazeta.ru/export/rss/lenta.xml",
+                    "description": "Новости дня в России и мире"
+                }
+            ],
+            "tech": [
+                {
+                    "name": "Habr",
+                    "url": "https://habr.com/ru/rss/hub/all/",
+                    "description": "IT-сообщество и технологические статьи"
+                },
+                {
+                    "name": "3DNews",
+                    "url": "https://3dnews.ru/news/rss/",
+                    "description": "Новости высоких технологий"
+                },
+                {
+                    "name": "CNews",
+                    "url": "https://www.cnews.ru/inc/rss/news.xml",
+                    "description": "Деловые новости ИТ"
+                }
+            ],
+            "science": [
+                {
+                    "name": "Наука и жизнь",
+                    "url": "https://www.nkj.ru/rss/",
+                    "description": "Научно-популярный журнал"
+                },
+                {
+                    "name": "Элементы",
+                    "url": "http://elementy.ru/rss/news",
+                    "description": "Новости науки"
+                }
+            ]
+        },
+        "uk": {
+            "news": [
+                {
+                    "name": "Українська правда",
+                    "url": "https://www.pravda.com.ua/rss/",
+                    "description": "Новини України та світу"
+                },
+                {
+                    "name": "УНІАН",
+                    "url": "https://rss.unian.net/site/news_ukr.xml",
+                    "description": "Українські національні новини"
+                },
+                {
+                    "name": "Дзеркало тижня",
+                    "url": "https://zn.ua/rss/full.rss",
+                    "description": "Аналітичний тижневик"
+                }
+            ],
+            "tech": [
+                {
+                    "name": "DOU",
+                    "url": "https://dou.ua/lenta/feed/",
+                    "description": "Спільнота розробників"
+                },
+                {
+                    "name": "AIN.UA",
+                    "url": "https://ain.ua/feed/",
+                    "description": "Новини українського ІТ"
+                }
+            ]
+        },
+        "pl": {
+            "news": [
+                {
+                    "name": "Gazeta Wyborcza",
+                    "url": "http://rss.gazeta.pl/pub/rss/gazetawyborcza_pl.xml",
+                    "description": "Wiadomości z Polski i świata"
+                },
+                {
+                    "name": "Rzeczpospolita",
+                    "url": "https://www.rp.pl/rss/1019-wszystkie-wiadomosci.xml",
+                    "description": "Dziennik gospodarczy i polityczny"
+                },
+                {
+                    "name": "Onet",
+                    "url": "https://wiadomosci.onet.pl/rss.xml",
+                    "description": "Portal informacyjny"
+                }
+            ],
+            "tech": [
+                {
+                    "name": "Spider's Web",
+                    "url": "https://www.spidersweb.pl/feed",
+                    "description": "Technologie i internet"
+                },
+                {
+                    "name": "Benchmark.pl",
+                    "url": "https://www.benchmark.pl/rss/aktualnosci.xml",
+                    "description": "Testy sprzętu i technologie"
+                }
+            ]
+        },
+        "cs": {
+            "news": [
+                {
+                    "name": "iDNES.cz",
+                    "url": "https://servis.idnes.cz/rss.aspx?c=zpravodaj",
+                    "description": "Zpravodajství z České republiky a světa"
+                },
+                {
+                    "name": "Novinky.cz",
+                    "url": "https://www.novinky.cz/rss2/",
+                    "description": "Aktuální zprávy a informace"
+                },
+                {
+                    "name": "Lidové noviny",
+                    "url": "https://www.lidovky.cz/rss.aspx",
+                    "description": "Deník Lidové noviny"
+                }
+            ],
+            "tech": [
+                {
+                    "name": "Lupa.cz",
+                    "url": "https://www.lupa.cz/rss/clanky/",
+                    "description": "Server o internetu a technologiích"
+                },
+                {
+                    "name": "Živě.cz",
+                    "url": "https://www.zive.cz/rss/sc-47/default.aspx",
+                    "description": "Technologie a hardware"
+                }
+            ]
+        },
+        "bg": {
+            "news": [
+                {
+                    "name": "Dnevnik.bg",
+                    "url": "https://www.dnevnik.bg/rss/",
+                    "description": "Новини от България и света"
+                },
+                {
+                    "name": "Mediapool",
+                    "url": "https://www.mediapool.bg/rss.xml",
+                    "description": "Информационен портал"
+                },
+                {
+                    "name": "BNT",
+                    "url": "https://bntnews.bg/bg/rss",
+                    "description": "Българска национална телевизия"
+                }
+            ],
+            "tech": [
+                {
+                    "name": "PC World Bulgaria",
+                    "url": "https://pcworld.bg/feed",
+                    "description": "Технологии и компютри"
+                }
+            ]
+        },
+        "sr": {
+            "news": [
+                {
+                    "name": "B92",
+                    "url": "https://www.b92.net/info/rss/index.xml",
+                    "description": "Вести из Србије и света"
+                },
+                {
+                    "name": "Blic",
+                    "url": "https://www.blic.rs/rss",
+                    "description": "Дневне новине"
+                },
+                {
+                    "name": "RTS",
+                    "url": "http://www.rts.rs/page/stories/ci/rss.html",
+                    "description": "Радио-телевизија Србије"
+                }
+            ],
+            "tech": [
+                {
+                    "name": "Benchmark",
+                    "url": "https://www.benchmark.rs/rss.xml",
+                    "description": "Технологије и рачунари"
+                }
+            ]
+        }
+    },
+    "categories": {
+        "en": {
+            "news": "News",
+            "tech": "Technology",
+            "science": "Science",
+            "sports": "Sports",
+            "business": "Business",
+            "entertainment": "Entertainment"
+        },
+        "ru": {
+            "news": "Новости",
+            "tech": "Технологии",
+            "science": "Наука",
+            "sports": "Спорт",
+            "business": "Бизнес",
+            "entertainment": "Развлечения"
+        },
+        "uk": {
+            "news": "Новини",
+            "tech": "Технології",
+            "science": "Наука",
+            "sports": "Спорт",
+            "business": "Бізнес",
+            "entertainment": "Розваги"
+        },
+        "pl": {
+            "news": "Wiadomości",
+            "tech": "Technologie",
+            "science": "Nauka",
+            "sports": "Sport",
+            "business": "Biznes",
+            "entertainment": "Rozrywka"
+        },
+        "cs": {
+            "news": "Zprávy",
+            "tech": "Technologie",
+            "science": "Věda",
+            "sports": "Sport",
+            "business": "Byznys",
+            "entertainment": "Zábava"
+        },
+        "bg": {
+            "news": "Новини",
+            "tech": "Технологии",
+            "science": "Наука",
+            "sports": "Спорт",
+            "business": "Бизнес",
+            "entertainment": "Забавление"
+        },
+        "sr": {
+            "news": "Вести",
+            "tech": "Технологије",
+            "science": "Наука",
+            "sports": "Спорт",
+            "business": "Бизнис",
+            "entertainment": "Забава"
+        }
+    }
+}
