@@ -1,12 +1,10 @@
-![](https://raw.githubusercontent.com/SerGioPlay01/fluent-rss-reader-web/refs/heads/main/preview.jpg)
+![](https://raw.githubusercontent.com/SerGioPlay01/fluent-rss-reader-web/refs/heads/main/hjbhgvg.png)
 
 # 🌟 Fluent RSS Reader
 
 **The #1 RSS Reader with Multilingual Support and Liquid Glass Design**
 
 A modern, responsive RSS reader that supports English and Slavic languages with a beautiful liquid glass aesthetic. Built as a Progressive Web App (PWA) for seamless cross-platform experience.
-
-![](https://raw.githubusercontent.com/SerGioPlay01/fluent-rss-reader-web/refs/heads/main/hjbhgvg.png)
 
 ## ✨ Features
 
