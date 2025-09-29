@@ -211,10 +211,11 @@ This project is open source and available under the MIT License.
 ## 📞 Contact
 
 - **Developer**: SerGio Play Dev
-- **Website**: [sergioplay-dev.netlify.app](https://sergioplay-dev.netlify.app/)
+- **Website**: [sergioplay-dev.netlify.app](https://sergioplay-dev.vercel.app/)
 - **Version**: 2.0.0
 - **Year**: 2025
 
 ---
+
 
 ### 🌟 Star this project if you find it useful!
