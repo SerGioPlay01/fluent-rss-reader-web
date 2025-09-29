@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /admin/
+
+Sitemap: https://fluent-rss-reader.netlify.app/sitemap.xml

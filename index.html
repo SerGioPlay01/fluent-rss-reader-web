@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru" id="html-root">
+
+<head>
+
+    <!-- Метатеги для SEO -->
+    <title>Fluent RSS Reader — персональный агрегатор новостей</title>
+    <meta name="description"
+        content="Удобный RSS-ридер для чтения новостей. Добавляйте RSS-ленты, сортируйте их по категориям и следите за любимыми источниками в одном месте.">
+    <meta name="keywords"
+        content="RSS-ридер, агрегатор новостей, чтение новостей, RSS-ленты, Fluent RSS Reader, управление подписками">
+
+    <!-- Метатеги для Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fluent RSS Reader — персональный агрегатор новостей">
+    <meta name="twitter:description"
+        content="Удобный RSS-ридер для чтения новостей. Добавляйте RSS-ленты, сортируйте их по категориям и следите за любимыми источниками в одном месте.">
+    <meta name="twitter:image" content="/preview.jpg">
+    <meta name="twitter:image:width" content="500">
+    <meta name="twitter:image:height" content="200">
+
+    <!-- Метатеги Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:title" content="Fluent RSS Reader — персональный агрегатор новостей">
+    <meta property="og:description"
+        content="Удобный RSS-ридер для чтения новостей. Добавляйте RSS-ленты, сортируйте их по категориям и следите за любимыми источниками в одном месте.">
+    <meta property="og:image" content="URL_изображения_проекта">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="200">
+    <meta property="og:url" content="/preview.jpg">
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon/logo 1.svg" type="image/x-icon">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="RSS Reader">
+    
+    <!-- Доступность и SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Russian">
+    <meta name="accessibility-features" content="keyboard-navigation, high-contrast-mode, screen-reader-support">
+    
+    <title>Fluent RSS Reader</title>
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- Preload критических ресурсов -->
+    <link rel="preload" href="/style.css" as="style">
+    <link rel="preload" href="/app.js" as="script">
+    
+    <!-- DNS prefetch для внешних ресурсов -->
+    <link rel="dns-prefetch" href="//api.allorigins.win">
+    <link rel="dns-prefetch" href="//cors-anywhere.herokuapp.com">
+</head>
+
+<body>
+    
+    <div class="container" id="main-content">
+        <div class="feed-input" role="form" aria-label="Добавление RSS ленты">
+            <div class="language-selector">
+                <label for="languageSelect" class="sr-only">Выбор языка</label>
+                <select id="languageSelect" aria-label="Выберите язык интерфейса" onchange="changeLanguage(this.value)">
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="uk">🇺🇦 Українська</option>
+                    <option value="pl">🇵🇱 Polski</option>
+                    <option value="cs">🇨🇿 Čeština</option>
+                    <option value="bg">🇧🇬 Български</option>
+                    <option value="sr">🇷🇸 Srpski</option>
+                </select>
+            </div>
+            
+            <label for="rssUrl" class="sr-only" data-i18n="rss_url_label">URL RSS-ленты</label>
+            <input type="url" id="rssUrl" placeholder="Введите URL RSS-ленты" aria-describedby="rss-help" data-i18n-placeholder="rss_url_placeholder">
+            <div id="rss-help" class="sr-only" data-i18n="rss_help">Введите полный URL RSS или Atom ленты</div>
+            
+            <label for="categorySelect" class="sr-only" data-i18n="category_label">Категория</label>
+            <select id="categorySelect" aria-label="Выберите категорию" data-i18n-aria="category_select_aria">
+                <option value="" data-i18n="all_categories">Все категории</option>
+            </select>
+            
+            <button class="add-btn btn btn-primary" onclick="addFeed()" aria-describedby="add-help" data-i18n="add_feed_btn">
+                Добавить
+            </button>
+            <div id="add-help" class="sr-only" data-i18n="add_help">Добавить RSS ленту в выбранную категорию</div>
+            
+            <button class="add-category-btn btn btn-secondary" onclick="addCategory()" data-i18n="add_category_btn">
+                Добавить категорию
+            </button>
+        </div>
+        <div class="tabs-container">
+            <button class="scroll-btn left" id="scrollLeft" onclick="scrollTabs('left')" aria-label="Прокрутить влево">‹</button>
+            <div class="tabs" id="tabs" role="tablist" aria-label="RSS ленты">
+                <!-- Вкладки будут здесь -->
+                <button class="manage-icon" onclick="showFeedManageModal()" aria-label="Управление лентами" title="Управление лентами">⚙️</button>
+            </div>
+            <button class="scroll-btn right" id="scrollRight" onclick="scrollTabs('right')" aria-label="Прокрутить вправо">›</button>
+            <div class="scroll-indicator">
+                <div class="scroll-progress" id="scrollProgress"></div>
+            </div>
+        </div>
+        <main class="feed-grid" id="feedGrid" role="main" aria-live="polite" aria-label="Содержимое RSS ленты"></main>
+    </div>
+
+    <nav class="bottom-nav" id="bottomNav" role="navigation" aria-label="Основная навигация">
+        <!-- Основные действия (всегда видимы на десктопе) -->
+        <button class="nav-item primary focus-ring desktop-only" onclick="loadCurrentFeed()" aria-label="Обновить текущую ленту" data-i18n-aria="refresh_current_feed">
+            <span class="icon" aria-hidden="true">↻</span>
+            <span class="nav-text" data-i18n="refresh">Обновить</span>
+        </button>
+        <button class="nav-item primary focus-ring desktop-only" onclick="scrollToTop()" aria-label="Прокрутить страницу наверх" data-i18n-aria="scroll_to_top">
+            <span class="icon" aria-hidden="true">↑</span>
+            <span class="nav-text" data-i18n="scroll_top">Наверх</span>
+        </button>
+        <button class="nav-item primary focus-ring desktop-only" onclick="toggleTheme()" aria-label="Переключить тему оформления" data-i18n-aria="toggle_theme">
+            <span class="icon" id="themeIcon" aria-hidden="true">🌓</span>
+            <span class="nav-text" data-i18n="theme">Тема</span>
+        </button>
+        <button class="nav-item secondary focus-ring desktop-only" onclick="showRecommendations()" aria-label="Показать рекомендуемые RSS ленты" data-i18n-aria="show_recommendations">
+            <span class="icon" aria-hidden="true">🌟</span>
+            <span class="nav-text" data-i18n="recommendations">Рекомендации</span>
+        </button>
+        
+        <!-- Кнопка меню (всегда видима) -->
+        <button class="nav-item menu-toggle focus-ring" id="menuToggle" onclick="toggleMobileMenu()" aria-label="Открыть меню действий" aria-expanded="false" data-i18n-aria="open_menu">
+            <span class="icon" aria-hidden="true">☰</span>
+            <span class="nav-text" data-i18n="menu">Меню</span>
+        </button>
+    </nav>
+
+    <!-- Универсальное меню действий -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <h3 id="mobile-menu-title" data-i18n="actions_menu_title">Действия</h3>
+                <button class="close-mobile-menu focus-ring" onclick="toggleMobileMenu()" aria-label="Закрыть меню" data-i18n-aria="close_menu">×</button>
+            </div>
+            <nav class="mobile-menu-items" role="navigation" aria-label="Навигация по действиям" data-i18n-aria="actions_navigation">
+                <!-- Основные действия -->
+                <div class="menu-section">
+                    <h4 class="menu-section-title" data-i18n="main_actions_section">Основные действия</h4>
+                    <button class="mobile-nav-item focus-ring" onclick="loadCurrentFeed(); toggleMobileMenu();" aria-label="Обновить текущую RSS ленту" data-i18n-aria="refresh_current_feed">
+                        <span class="icon" aria-hidden="true">↻</span>
+                        <span data-i18n="refresh_feed">Обновить ленту</span>
+                    </button>
+                    <button class="mobile-nav-item focus-ring" onclick="refreshAllFeeds(); toggleMobileMenu();" aria-label="Обновить все RSS ленты" data-i18n-aria="refresh_all_feeds">
+                        <span class="icon" aria-hidden="true">🔄</span>
+                        <span data-i18n="refresh_all_feeds">Обновить все ленты</span>
+                    </button>
+                    <button class="mobile-nav-item focus-ring" onclick="scrollToTop(); toggleMobileMenu();" aria-label="Прокрутить страницу наверх" data-i18n-aria="scroll_to_top">
+                        <span class="icon" aria-hidden="true">↑</span>
+                        <span data-i18n="scroll_top">Наверх</span>
+                    </button>
+                    <button class="mobile-nav-item focus-ring" onclick="toggleTheme(); toggleMobileMenu();" aria-label="Переключить тему оформления" data-i18n-aria="toggle_theme">
+                        <span class="icon theme-icon" aria-hidden="true">🌓</span>
+                        <span data-i18n="change_theme">Сменить тему</span>
+                    </button>
+                </div>
+
+                <!-- Управление лентами -->
+                <div class="menu-section">
+                    <h4 class="menu-section-title" data-i18n="feed_management_section">Управление лентами</h4>
+                    <button class="mobile-nav-item focus-ring" onclick="showRecommendations(); toggleMobileMenu();" aria-label="Показать рекомендуемые RSS ленты" data-i18n-aria="show_recommendations">
+                        <span class="icon" aria-hidden="true">🌟</span>
+                        <span data-i18n="recommended_feeds">Рекомендуемые ленты</span>
+                    </button>
+                    <button class="mobile-nav-item focus-ring" onclick="exportFeeds(); toggleMobileMenu();" aria-label="Экспортировать ленты в OPML файл" data-i18n-aria="export_feeds">
+                        <span class="icon" aria-hidden="true">📤</span>
+                        <span data-i18n="export_feeds">Экспорт лент</span>
+                    </button>
+                    <button class="mobile-nav-item focus-ring" onclick="importFeeds(); toggleMobileMenu();" aria-label="Импортировать ленты из OPML файла" data-i18n-aria="import_feeds">
+                        <span class="icon" aria-hidden="true">📥</span>
+                        <span data-i18n="import_feeds">Импорт лент</span>
+                    </button>
+                    <button class="mobile-nav-item focus-ring" id="mobileInstallButton" style="display: none;" onclick="document.getElementById('installButton').click(); toggleMobileMenu();" aria-label="Установить приложение как PWA" data-i18n-aria="install_app">
+                        <span class="icon" aria-hidden="true">📱</span>
+                        <span data-i18n="install_app">Установить приложение</span>
+                    </button>
+                </div>
+
+                <!-- Опасные действия -->
+                <div class="menu-section">
+                    <h4 class="menu-section-title" data-i18n="dangerous_actions_section">Опасные действия</h4>
+                    <button class="mobile-nav-item danger focus-ring" onclick="clearFeed(); toggleMobileMenu();" aria-label="Удалить все RSS ленты" data-i18n-aria="clear_all_feeds">
+                        <span class="icon" aria-hidden="true">🗑️</span>
+                        <span data-i18n="clear_all_feeds">Очистить все ленты</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-close-overlay">
+            <button class="close-btn focus-ring" onclick="closeModal()" aria-label="Закрыть модальное окно" data-i18n-aria="close_modal">×</button>
+        </div>
+        <div class="modal-content">
+            <div class="mode-switch">
+                <button class="mode-btn active" onclick="switchMode('normal')" data-i18n="normal_mode">Обычный</button>
+                <button class="mode-btn" onclick="switchMode('web')" data-i18n="web_mode">Веб-страница</button>
+            </div>
+            <div id="modalContent"></div>
+            <button class="share-btn" onclick="showShareModal()" data-i18n="share">Поделиться</button>
+        </div>
+    </div>
+
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal-close-overlay">
+            <button class="close-btn focus-ring" onclick="closeShareModal()" aria-label="Закрыть окно поделиться" data-i18n-aria="close_share_modal">×</button>
+        </div>
+        <div class="share-modal-content">
+            <h3 data-i18n="share_modal_title">Поделиться</h3>
+            <div class="share-options" id="shareOptions"></div>
+            <div class="link-preview" id="linkPreview"></div>
+            <button class="copy-btn" onclick="copyLink()" data-i18n="copy_link">Скопировать ссылку</button>
+        </div>
+    </div>
+
+    <div class="share-modal" id="feedManageModal">
+        <div class="share-modal-close-overlay">
+            <button class="close-btn focus-ring" onclick="closeFeedManageModal()" aria-label="Закрыть управление лентами" data-i18n-aria="close_feed_manage">×</button>
+        </div>
+        <div class="share-modal-content">
+            <h3 data-i18n="feed_management_title">Управление лентами</h3>
+            <div id="feedManageOptions"></div>
+        </div>
+    </div>
+
+    <div class="preloader" id="preloader">
+        <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_17_56)">
+                <mask id="mask0_17_56" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="400"
+                    height="400">
+                    <path d="M400 0H0V400H400V0Z" fill="white" />
+                </mask>
+                <g mask="url(#mask0_17_56)">
+                    <g filter="url(#filter0_d_17_56)">
+                        <path
+                            d="M345 50H75C72.2386 50 70 52.2386 70 55V325C70 327.761 72.2386 330 75 330H345C347.761 330 350 327.761 350 325V55C350 52.2386 347.761 50 345 50Z"
+                            fill="url(#paint0_radial_17_56)" />
+                    </g>
+                    <g filter="url(#filter1_d_17_56)">
+                        <path
+                            d="M280 115H65C62.2386 115 60 117.239 60 120V335C60 337.761 62.2386 340 65 340H280C282.761 340 285 337.761 285 335V120C285 117.239 282.761 115 280 115Z"
+                            fill="url(#paint1_radial_17_56)" />
+                    </g>
+                    <g filter="url(#filter2_d_17_56)">
+                        <path
+                            d="M215 180H55C52.2386 180 50 182.239 50 185V345C50 347.761 52.2386 350 55 350H215C217.761 350 220 347.761 220 345V185C220 182.239 217.761 180 215 180Z"
+                            fill="url(#paint2_radial_17_56)" />
+                    </g>
+                    <g filter="url(#filter3_d_17_56)">
+                        <path
+                            d="M100.102 314V209.273H169.443V227.528H122.244V252.483H164.841V270.739H122.244V314H100.102Z"
+                            fill="white" />
+                    </g>
+                </g>
+            </g>
+            <defs>
+                <filter id="filter0_d_17_56" x="45" y="25" width="330" height="330" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="12.5" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_17_56" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_17_56" result="shape" />
+                </filter>
+                <filter id="filter1_d_17_56" x="35" y="90" width="275" height="275" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="12.5" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_17_56" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_17_56" result="shape" />
+                </filter>
+                <filter id="filter2_d_17_56" x="25" y="155" width="220" height="220" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="12.5" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_17_56" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_17_56" result="shape" />
+                </filter>
+                <filter id="filter3_d_17_56" x="90.1023" y="202.273" width="89.3409" height="124.727"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset dy="3" />
+                    <feGaussianBlur stdDeviation="5" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.161 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_17_56" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_17_56" result="shape" />
+                </filter>
+                <radialGradient id="paint0_radial_17_56" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(181.857 171.911) rotate(-45.2431) scale(401.463 231.962)">
+                    <stop stop-color="#179C5A" />
+                    <stop offset="1" stop-color="#137745" />
+                </radialGradient>
+                <radialGradient id="paint1_radial_17_56" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(147.546 210.765) rotate(-45.4052) scale(321.26 177.216)">
+                    <stop stop-color="#2A9761" />
+                    <stop offset="1" stop-color="#179C5A" />
+                </radialGradient>
+                <radialGradient id="paint2_radial_17_56" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(168.616 326.044) rotate(-46.9051) scale(199.009 190.559)">
+                    <stop stop-color="#179C5A" />
+                    <stop offset="1" stop-color="#33D183" />
+                </radialGradient>
+                <clipPath id="clip0_17_56">
+                    <rect width="400" height="400" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
+
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <span class="logo-icon">📰</span>
+                    <span class="logo-text">Fluent RSS Reader</span>
+                </div>
+                <p class="footer-description" data-i18n="footer_description">Современный RSS-ридер с поддержкой множества языков и красивым дизайном</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4 data-i18n="footer_features">Возможности</h4>
+                    <ul>
+                        <li data-i18n="footer_multilingual">Многоязычность</li>
+                        <li data-i18n="footer_offline">Офлайн режим</li>
+                        <li data-i18n="footer_search">Поиск статей</li>
+                        <li data-i18n="footer_categories">Категории</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer_languages">Языки</h4>
+                    <ul>
+                        <li>🇷🇺 Русский</li>
+                        <li>🇺🇸 English</li>
+                        <li>🇺🇦 Українська</li>
+                        <li>🇵🇱 Polski</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-author">
+                <span data-i18n="footer_created_by">Создано с ❤️</span>
+                <a href="https://sergioplay-dev.netlify.app/" target="_blank" rel="noopener noreferrer" class="author-link">
+                    <span class="author-icon">👨‍💻</span>
+                    <span>SerGio Play Dev</span>
+                </a>
+            </div>
+            <div class="footer-version">
+                <span>v2.0.0</span>
+                <span class="separator">•</span>
+                <span data-i18n="footer_year">2025</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/app.js"></script>
+    <script>
+        let deferredPrompt;
+
+        // Событие beforeinstallprompt срабатывает, когда браузер готов предложить установку PWA
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Предотвращаем автоматическое отображение подсказки
+            e.preventDefault();
+            // Сохраняем событие для использования позже
+            deferredPrompt = e;
+            // Показываем кнопку установки
+            const installButton = document.getElementById('installButton');
+            const mobileInstallButton = document.getElementById('mobileInstallButton');
+            installButton.style.display = 'block';
+            mobileInstallButton.style.display = 'block';
+        });
+
+        // Обработка клика по кнопке установки
+        document.getElementById('installButton').addEventListener('click', () => {
+            if (deferredPrompt) {
+                // Показываем подсказку установки
+                deferredPrompt.prompt();
+                // Ждем, пока пользователь ответит на подсказку
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Пользователь согласился установить PWA');
+                    } else {
+                        console.log('Пользователь отказался от установки PWA');
+                    }
+                    // Очищаем сохраненное событие
+                    deferredPrompt = null;
+                    // Скрываем кнопки установки
+                    document.getElementById('installButton').style.display = 'none';
+                    document.getElementById('mobileInstallButton').style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
