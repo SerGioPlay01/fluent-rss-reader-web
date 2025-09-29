@@ -4,7 +4,7 @@
 
 A modern, responsive RSS reader that supports English and Slavic languages with a beautiful liquid glass aesthetic. Built as a Progressive Web App (PWA) for seamless cross-platform experience.
 
-![Fluent RSS Reader](preview.jpg)
+![Fluent RSS Reader](hbubh.png)
 
 ## ✨ Features
 
@@ -219,3 +219,4 @@ This project is open source and available under the MIT License.
 
 
 ### 🌟 Star this project if you find it useful!
+
