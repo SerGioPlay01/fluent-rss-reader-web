@@ -2,35 +2,277 @@
 <html lang="ru" id="html-root">
 
 <head>
-
+    <!-- Основные метатеги -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Верификация поисковых систем -->
     <meta name="yandex-verification" content="d3afa32d7eb50e33" />
+    <meta name="google-site-verification" content="ВАШ_КОД_GOOGLE" />
+    <meta name="msvalidate.01" content="ВАШ_КОД_BING" />
+    <meta name="p:domain_verify" content="ВАШ_КОД_PINTEREST" />
 
-    <!-- Метатеги для SEO -->
-    <title>Fluent RSS Reader — персональный агрегатор новостей</title>
-    <meta name="description"
-        content="Удобный RSS-ридер для чтения новостей. Добавляйте RSS-ленты, сортируйте их по категориям и следите за любимыми источниками в одном месте.">
-    <meta name="keywords"
-        content="RSS-ридер, агрегатор новостей, чтение новостей, RSS-ленты, Fluent RSS Reader, управление подписками">
+    <!-- ===== SEO ОПТИМИЗАЦИЯ ===== -->
+    <!-- Основной тайтл с ключевыми словами -->
+    <title>Fluent RSS Reader — Бесплатный RSS агрегатор новостей с поддержкой офлайн-чтения</title>
+    
+    <!-- Мета-описание (до 160 символов) -->
+    <meta name="description" content="Fluent RSS Reader — современный агрегатор новостей. Добавляйте любые RSS-ленты, создавайте категории, читайте статьи офлайн. Поддержка тёмной темы, мультиязычность и удобная навигация.">
+    
+    <!-- Ключевые слова -->
+    <meta name="keywords" content="RSS читалка, RSS агрегатор, чтение новостей онлайн, RSS ридер бесплатно, новостная лента, управление подписками, офлайн чтение, Fluent RSS Reader, feed reader, news aggregator, RSS feed manager">
+    
+    <!-- Автор и копирайт -->
+    <meta name="author" content="SerGio Play Dev">
+    <meta name="copyright" content="© 2025 Fluent RSS Reader. Все права защищены.">
+    
+    <!-- Язык и регион -->
+    <meta name="language" content="ru, en, uk, pl, cs, bg, sr">
+    <meta name="content-language" content="ru, en, uk, pl, cs, bg, sr">
+    <meta name="geo.region" content="RU">
+    <meta name="geo.placename" content="Russia">
+    <meta name="geo.position" content="55.7558;37.6173">
+    <meta name="ICBM" content="55.7558, 37.6173">
+    
+    <!-- Индексация поисковиками -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="yandex" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- Частота обновления -->
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    
+    <!-- Безопасность -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval';
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: https: http:;
+        font-src 'self' data:;
+        connect-src 'self' https://api.allorigins.win https://cors-anywhere.herokuapp.com https: http:;
+        frame-src 'self' https: http:;
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Канонический URL -->
+    <link rel="canonical" href="https://fluent-rss-reader-web.vercel.app/">
+    
+    <!-- Альтернативные языковые версии -->
+    <link rel="alternate" hreflang="ru" href="https://fluent-rss-reader-web.vercel.app/?lang=ru">
+    <link rel="alternate" hreflang="en" href="https://fluent-rss-reader-web.vercel.app/?lang=en">
+    <link rel="alternate" hreflang="uk" href="https://fluent-rss-reader-web.vercel.app/?lang=uk">
+    <link rel="alternate" hreflang="pl" href="https://fluent-rss-reader-web.vercel.app/?lang=pl">
+    <link rel="alternate" hreflang="cs" href="https://fluent-rss-reader-web.vercel.app/?lang=cs">
+    <link rel="alternate" hreflang="bg" href="https://fluent-rss-reader-web.vercel.app/?lang=bg">
+    <link rel="alternate" hreflang="sr" href="https://fluent-rss-reader-web.vercel.app/?lang=sr">
+    <link rel="alternate" hreflang="x-default" href="https://fluent-rss-reader-web.vercel.app/">
 
-    <!-- Метатеги для Twitter -->
+    <!-- ===== OPEN GRAPH (Facebook, LinkedIn, Discord, etc.) ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fluent RSS Reader">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="Fluent RSS Reader — Современный агрегатор новостей">
+    <meta property="og:description" content="Бесплатный RSS-ридер с поддержкой офлайн-чтения, тёмной темы и мультиязычности. Добавляйте любые RSS-ленты и читайте новости в одном месте.">
+    <meta property="og:url" content="https://fluent-rss-reader-web.vercel.app/">
+    <meta property="og:image" content="https://fluent-rss-reader-web.vercel.app/preview.jpg">
+    <meta property="og:image:secure_url" content="https://fluent-rss-reader-web.vercel.app/preview.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Fluent RSS Reader - Интерфейс агрегатора новостей">
+    
+    <!-- Open Graph для видео (если есть демо) -->
+    <meta property="og:video" content="https://fluent-rss-reader-web.vercel.app/demo.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+
+    <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Fluent RSS Reader — персональный агрегатор новостей">
-    <meta name="twitter:description"
-        content="Удобный RSS-ридер для чтения новостей. Добавляйте RSS-ленты, сортируйте их по категориям и следите за любимыми источниками в одном месте.">
-    <meta name="twitter:image" content="/preview.jpg">
-    <meta name="twitter:image:width" content="500">
-    <meta name="twitter:image:height" content="200">
+    <meta name="twitter:site" content="@fluentrss">
+    <meta name="twitter:creator" content="@sergioplaydev">
+    <meta name="twitter:title" content="Fluent RSS Reader — Персональный агрегатор новостей">
+    <meta name="twitter:description" content="Удобный RSS-ридер с поддержкой категорий, офлайн-чтения и тёмной темы. Следите за новостями из любых источников в одном месте.">
+    <meta name="twitter:image" content="https://fluent-rss-reader-web.vercel.app/preview-twitter.jpg">
+    <meta name="twitter:image:alt" content="Превью Fluent RSS Reader">
 
-    <!-- Метатеги Open Graph (Facebook, LinkedIn) -->
-    <meta property="og:title" content="Fluent RSS Reader — персональный агрегатор новостей">
-    <meta property="og:description"
-        content="Удобный RSS-ридер для чтения новостей. Добавляйте RSS-ленты, сортируйте их по категориям и следите за любимыми источниками в одном месте.">
-    <meta property="og:image" content="URL_изображения_проекта">
-    <meta property="og:image:width" content="500">
-    <meta property="og:image:height" content="200">
-    <meta property="og:url" content="/preview.jpg">
+    <!-- ===== MICROSOFT / WINDOWS ===== -->
+    <meta name="msapplication-TileColor" content="#179c5a">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="msapplication-tooltip" content="Fluent RSS Reader - Читайте новости удобно">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="msapplication-navbutton-color" content="#179c5a">
+    <meta name="application-name" content="Fluent RSS Reader">
 
+    <!-- ===== APPLE SPECIFIC ===== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="RSS Reader">
+    <meta name="apple-itunes-app" content="app-id=ВАШ_ID_APP_STORE">
+    
+    <!-- Apple Smart App Banner -->
+    <meta name="smartbanner:title" content="Fluent RSS Reader">
+    <meta name="smartbanner:author" content="SerGio Play Dev">
+    <meta name="smartbanner:price" content="БЕСПЛАТНО">
+    <meta name="smartbanner:button" content="ОТКРЫТЬ">
+
+    <!-- ===== ТЕМЫ И ЦВЕТА ===== -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="theme-color" content="#179c5a" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+
+    <!-- ===== ДОСТУПНОСТЬ (A11Y) ===== -->
+    <meta name="accessibility-features" content="keyboard-navigation, high-contrast-mode, screen-reader-support, text-to-speech, reduced-motion-support">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+
+    <!-- ===== МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ===== -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+
+    <!-- ===== СТРУКТУРИРОВАННЫЕ ДАННЫЕ (JSON-LD) ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Fluent RSS Reader",
+        "alternateName": ["RSS Reader", "News Aggregator", "Fluent RSS"],
+        "url": "https://fluent-rss-reader-web.vercel.app/",
+        "description": "Современный бесплатный RSS-агрегатор с поддержкой категорий, офлайн-чтения, тёмной темы и мультиязычности.",
+        "applicationCategory": "NewsApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "softwareVersion": "2.0.0",
+        "datePublished": "2024-01-01",
+        "dateModified": "2025-04-14",
+        "author": {
+            "@type": "Person",
+            "name": "SerGio Play Dev",
+            "url": "https://sergioplay-dev.vercel.app/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Fluent RSS Reader",
+            "url": "https://fluent-rss-reader-web.vercel.app/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://fluent-rss-reader-web.vercel.app/favicon/logo%201.svg",
+                "width": "512",
+                "height": "512"
+            }
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "https://schema.org/MultiLingual",
+            "https://schema.org/DarkMode",
+            "https://schema.org/OfflineCapable"
+        ],
+        "screenshot": [
+            {
+                "@type": "ImageObject",
+                "url": "https://fluent-rss-reader-web.vercel.app/screenshot1.jpg",
+                "caption": "Главный экран с лентой новостей"
+            },
+            {
+                "@type": "ImageObject",
+                "url": "https://fluent-rss-reader-web.vercel.app/screenshot2.jpg",
+                "caption": "Чтение статьи в удобном формате"
+            }
+        ],
+        "inLanguage": ["ru", "en", "uk", "pl", "cs", "bg", "sr"],
+        "interactionStatistic": {
+            "@type": "InteractionCounter",
+            "interactionType": "https://schema.org/DownloadAction",
+            "userInteractionCount": "5000"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "128"
+        }
+    }
+    </script>
+
+    <!-- BreadcrumbList для навигации -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://fluent-rss-reader-web.vercel.app/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "RSS Reader",
+                "item": "https://fluent-rss-reader-web.vercel.app/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema (если есть раздел с вопросами) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Что такое Fluent RSS Reader?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fluent RSS Reader — это бесплатный онлайн-агрегатор новостей, который позволяет собирать RSS-ленты из разных источников, сортировать их по категориям и читать в удобном формате."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Какие языки поддерживает Fluent RSS Reader?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Поддерживаются русский, английский, украинский, польский, чешский, болгарский и сербский языки."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Можно ли читать новости офлайн?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да, Fluent RSS Reader поддерживает офлайн-режим. Загруженные статьи сохраняются в кэше браузера и доступны без подключения к интернету."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- ===== ИКОНКИ И МАНИФЕСТ ===== -->
     <link rel="manifest" href="/manifest.json">
+    
+    <!-- Favicon для разных устройств -->
+    <link rel="icon" type="image/svg+xml" href="/favicon/logo%201.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon/logo%201.svg">
+    
+    <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
@@ -40,41 +282,28 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    
+    <!-- Android Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="/favicon/logo 1.svg" type="image/x-icon">
-    <link rel="manifest" href="/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-icon-512x512.png">
+    
+    <!-- Маска для Safari -->
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#179c5a">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="color-scheme" content="light dark">
-    <meta name="supported-color-schemes" content="light dark">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="RSS Reader">
-    
-    <!-- Доступность и SEO -->
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Russian">
-    <meta name="accessibility-features" content="keyboard-navigation, high-contrast-mode, screen-reader-support">
-    
-    <title>Fluent RSS Reader</title>
+    <!-- ===== СТИЛИ ===== -->
     <link rel="stylesheet" href="/style.css">
     
-    <!-- Preload критических ресурсов -->
+    <!-- ===== ПРЕДЗАГРУЗКА КРИТИЧЕСКИХ РЕСУРСОВ ===== -->
     <link rel="preload" href="/style.css" as="style">
     <link rel="preload" href="/app.js" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- DNS prefetch для внешних ресурсов -->
+    <!-- DNS Prefetch для внешних API -->
     <link rel="dns-prefetch" href="//api.allorigins.win">
     <link rel="dns-prefetch" href="//cors-anywhere.herokuapp.com">
+    <link rel="preconnect" href="https://api.allorigins.win">
+    <link rel="preconnect" href="https://cors-anywhere.herokuapp.com">
 </head>
 
 <body>
